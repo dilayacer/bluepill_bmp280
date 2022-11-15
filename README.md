@@ -6,3 +6,4 @@ The schematic of the designed system was drawn on Proteus.
 
 ![image](https://user-images.githubusercontent.com/94526687/202036276-00e90f78-0478-4fb7-b72e-4932bf14706d.png)
 
+The project was prepared in Arduino Framework on Platformio.
