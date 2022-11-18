@@ -1,3 +1,12 @@
+/*
+Altitude sickness, the mildest form being acute mountain sickness (AMS), is the harmful effect of high altitude, 
+caused by rapid exposure to low amounts of oxygen at high elevation. Altitude sickness typically occurs only above 
+2,500 metres (8,000 ft), though some are affected at lower altitudes [1].
+
+Reference
+[1] Altitude sickness, https://en.wikipedia.org/wiki/Altitude_sickness
+*/
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <SPI.h>            
