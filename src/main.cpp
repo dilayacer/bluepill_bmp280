@@ -15,6 +15,8 @@ Reference
 #include <Adafruit_PCD8544.h>
 
 #define BMP280_I2C_ADDRESS  0x76
+float alarm = 2500,0;
+
 Adafruit_BMP280 bmp;
 
 char text[12];
@@ -62,6 +64,14 @@ void ldr(){
   }
 //motor ile led i sensöre bağla
 }
+
+void alarm(){
+  if( alarm >= alt) {
+     ldr();
+     vid();
+  }
+
+}
 void loop() {
   float temp = bmp.readTemperature();
   float pres = bmp.readPressure()/100;
@@ -78,4 +88,7 @@ void loop() {
   display.setCursor(15, 20);
   sprintf(text, "%04u.%02u hPa", (int)pres, (int)((uint32_t)(pres * 100) % 100));
   display.print(text);
+
+  alarm();
+  
 }
