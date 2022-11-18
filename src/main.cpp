@@ -15,7 +15,7 @@ Reference
 #include <Adafruit_PCD8544.h>
 
 #define BMP280_I2C_ADDRESS  0x76
-float alarm = 2500,0;
+float alarm = 2500,0; //Dangerous altitude
 
 Adafruit_BMP280 bmp;
 
@@ -44,7 +44,7 @@ void setup() {
    pinMode(PB8, OUTPUT); //vib. motor
   }
 
-void ldr(){
+void ldr() {
   int light = analogRead(PA6);
   if (light > 900) {
     digitalWrite(PA3, LOW);
@@ -54,24 +54,22 @@ void ldr(){
     delay(100);
     digitalWrite(PA3, LOW);
   }
+}
 
-  void vib(){
-     
+  void vib() {   
      digitalWrite(PB8, HIGH);
      delay(1000);
      digitalWrite(PB8, LOW);
      delay(1000);
   }
-//motor ile led i sensöre bağla
-}
 
-void alarm(){
-  if( alarm >= alt) {
+void alarm() {
+  if( alt >= alarm) {
      ldr();
-     vid();
+     vib();
   }
-
 }
+
 void loop() {
   float temp = bmp.readTemperature();
   float pres = bmp.readPressure()/100;
@@ -90,5 +88,5 @@ void loop() {
   display.print(text);
 
   alarm();
-  
+
 }
